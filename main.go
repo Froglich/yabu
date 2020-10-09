@@ -9,6 +9,7 @@ import (
 	"io/ioutil"
 	"math/rand"
 	"os"
+	"path"
 	"path/filepath"
 	"strings"
 	"time"
@@ -113,7 +114,7 @@ func (zf *zipper) AddFilesRecursively(p string, r string) error {
 	}
 
 	for _, f := range files {
-		err = zf.AddFilesRecursively(filepath.Join(p, f.Name()), filepath.Join(r, f.Name()))
+		err = zf.AddFilesRecursively(filepath.Join(p, f.Name()), path.Join(r, f.Name()))
 		if err != nil {
 			return err
 		}
